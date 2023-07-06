@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -8,16 +9,20 @@ body {
   background-color: #9a59b5;
 }
 
-.login-screen img {
-  height: 120px;
-}
-
 .login-screen {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.login-screen h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-bottom: 30px;
+  font-family: "Roboto", sans-serif;
 }
 
 .login-screen input {
