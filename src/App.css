@@ -53,3 +53,21 @@ body {
   color: #000;
   transition: ease-in-out 0.4s;
 }
+
+.login-screen .info {
+  display: flex;
+}
+
+.login-screen a,
+.info p {
+  color: #fff;
+}
+
+.login-screen a {
+  margin-left: 5px;
+}
+
+.info {
+  position: absolute;
+  bottom: 1px;
+}

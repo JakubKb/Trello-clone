@@ -32,6 +32,15 @@ function LoginScreen({ setLoggedIn }) {
       <button className="sign-in-btn" onClick={checkLogin}>
         Sign in
       </button>
+      <div className="info">
+        <p>This design was based on </p>
+        <a
+          target="blank"
+          href="https://github.com/bigardone/phoenix-trello/tree/master"
+        >
+          Phoenix trello
+        </a>
+      </div>
     </div>
   );
 }
