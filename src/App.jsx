@@ -1,13 +1,14 @@
 import "./App.css";
 import { useState } from "react";
 
-function LoginScreen() {
+function LoginScreen({ setLoggedIn }) {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
-  const checkLogin = (password, login) => {
+  const checkLogin = () => {
     if (password === "test123" && login === "test11") {
       console.log("Logged in!");
+      setLoggedIn(true);
     }
   };
 
@@ -28,20 +29,31 @@ function LoginScreen() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button
-        className="sign-in-btn"
-        onClick={() => checkLogin(password, login)}
-      >
+      <button className="sign-in-btn" onClick={checkLogin}>
         Sign in
       </button>
     </div>
   );
 }
 
+function TrelloDashboard() {
+  return (
+    <div className="dashboard">
+      <h1>test</h1>
+    </div>
+  );
+}
+
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <>
-      <LoginScreen />
+      {loggedIn ? (
+        <TrelloDashboard />
+      ) : (
+        <LoginScreen setLoggedIn={setLoggedIn} />
+      )}
     </>
   );
 }
