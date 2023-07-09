@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap");
 * {
   margin: 0;
@@ -70,4 +71,28 @@ body {
 .info {
   position: absolute;
   bottom: 1px;
+}
+
+.dashboard header {
+  display: flex;
+  background-color: #864b9b;
+  align-items: center;
+}
+
+.dashboard header button {
+  background-color: #956aaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border: none;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.dashboard header button img {
+  margin-right: 5px;
 }

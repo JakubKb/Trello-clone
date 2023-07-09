@@ -1,5 +1,7 @@
 import "./App.css";
 import { useState } from "react";
+import profileIcon from "./trello-assets/profile-icon.svg";
+import doorIcon from "./trello-assets/door-icon.svg";
 
 function LoginScreen({ setLoggedIn }) {
   const [login, setLogin] = useState("");
@@ -48,7 +50,20 @@ function LoginScreen({ setLoggedIn }) {
 function TrelloDashboard() {
   return (
     <div className="dashboard">
-      <h1>test</h1>
+      <header>
+        <div className="category">
+          <p> Boards</p>
+        </div>
+        <h3>Trello List</h3>
+        <div className="account">
+          <img src={profileIcon} alt="Blank profile icon" />
+          <p>Test User</p>
+        </div>
+        <button className="sign-out">
+          <img src={doorIcon} alt="door icon" />
+          Sign out
+        </button>
+      </header>
     </div>
   );
 }
