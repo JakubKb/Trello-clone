@@ -51,14 +51,12 @@ function TrelloDashboard() {
   return (
     <div className="dashboard">
       <header>
-        <div className="category">
-          <p> Boards</p>
-        </div>
-        <h3>Trello List</h3>
         <div className="account">
           <img src={profileIcon} alt="Blank profile icon" />
           <p>Test User</p>
         </div>
+        <h3>Trello List</h3>
+
         <button className="sign-out">
           <img src={doorIcon} alt="door icon" />
           Sign out

@@ -77,6 +77,12 @@ body {
   display: flex;
   background-color: #864b9b;
   align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.dashboard .wrapper {
+  display: flex;
 }
 
 .dashboard header button {
@@ -100,9 +106,8 @@ body {
 
 .dashboard h3 {
   color: #fff;
+  font-size: 25px;
   text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px;
   font-family: "Roboto", sans-serif;
 }
 
