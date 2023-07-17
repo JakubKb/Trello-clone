@@ -139,6 +139,7 @@ body {
   background-color: #fff;
   padding: 5px;
   border-radius: 7px;
+  cursor: pointer;
 }
 
 .task-board h5 {
@@ -177,4 +178,10 @@ body {
   border-radius: 7px;
   cursor: pointer;
   opacity: 0.8;
+}
+
+.task-dashboard-wrapper button:hover {
+  filter: brightness(90%);
+  color: #fff;
+  transition: ease-in-out 0.3s;
 }
