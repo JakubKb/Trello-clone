@@ -62,6 +62,14 @@ function TrelloDashboard() {
           Sign out
         </button>
       </header>
+      <div className="task-dashboard-wrapper">
+        <div className="task-board">
+          <h5>Title</h5>
+          <div className="task">Test task- test</div>
+          <input type="text" placeholder="Add a new task.." />
+        </div>
+        <button>Add a new board</button>
+      </div>
     </div>
   );
 }

@@ -126,3 +126,55 @@ body {
   margin-right: 10px;
   cursor: pointer;
 }
+
+.task-board {
+  background-color: #d6d6d6;
+  width: 250px;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 7px;
+}
+
+.task {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+.task-board h5 {
+  font-size: 17px;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+}
+
+.task-board input {
+  background-color: transparent;
+  border: none;
+  margin-top: 25px;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  padding: 3px;
+  width: 100%;
+  outline: none;
+}
+
+.task-board input:active {
+  border: none;
+  color: #2b2b2b;
+}
+
+.task-dashboard-wrapper {
+  display: flex;
+}
+
+.task-dashboard-wrapper button {
+  height: 50px;
+  width: 150px;
+  background-color: #864b9b;
+  margin-top: 15px;
+  border: none;
+  color: #d6d6d6;
+  border-radius: 7px;
+  cursor: pointer;
+  opacity: 0.8;
+}
