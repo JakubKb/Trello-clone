@@ -48,6 +48,19 @@ function LoginScreen({ setLoggedIn }) {
 }
 
 function TrelloDashboard() {
+  const [list, setList] = useState([]);
+  const [input, setInput] = useState();
+
+  const addTodo = (todo) => {
+    const newTodo = {
+      id: Math.random(),
+      todo: todo,
+    };
+    setList([...list, newTodo]);
+
+    setInput("");
+  };
+
   return (
     <div className="dashboard">
       <header>
@@ -65,8 +78,21 @@ function TrelloDashboard() {
       <div className="task-dashboard-wrapper">
         <div className="task-board">
           <h5>Title</h5>
-          <div className="task">Test task- test</div>
-          <input type="text" placeholder="Add a new task.." />
+          <div className="task">
+            <ul>
+              {list.map((todo) => (
+                <li key={todo.id}>{todo.todo}</li>
+              ))}
+            </ul>
+          </div>
+          <form onSubmit={() => addTodo(input)}>
+            <input
+              type="text"
+              placeholder="Add a new task.."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+          </form>
         </div>
         <button>Add a new board</button>
       </div>
