@@ -51,10 +51,12 @@ function TrelloDashboard() {
   const [list, setList] = useState([]);
   const [input, setInput] = useState();
 
-  const addTodo = (todo) => {
+  const addTodo = (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+
     const newTodo = {
       id: Math.random(),
-      todo: todo,
+      todo: input, // Access the input value directly from the state
     };
     setList([...list, newTodo]);
 
@@ -85,12 +87,17 @@ function TrelloDashboard() {
               ))}
             </ul>
           </div>
-          <form onSubmit={() => addTodo(input)}>
+          <form onSubmit={addTodo}>
             <input
               type="text"
               placeholder="Add a new task.."
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  addTodo(e);
+                }
+              }}
             />
           </form>
         </div>
