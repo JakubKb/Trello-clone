@@ -83,7 +83,11 @@ function TrelloDashboard() {
           <div className="task">
             <ul>
               {list.map((todo) => (
-                <li key={todo.id}>{todo.todo}</li>
+                <li key={todo.id}>
+                  {todo.todo}
+
+                  <button className="x-button">X</button>
+                </li>
               ))}
             </ul>
           </div>
@@ -101,7 +105,7 @@ function TrelloDashboard() {
             />
           </form>
         </div>
-        <button>Add a new board</button>
+        <button className="board-btn">Add a new board</button>
       </div>
     </div>
   );
