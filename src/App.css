@@ -125,6 +125,7 @@ body {
   padding-right: 5px;
   margin-right: 10px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .task-board {
@@ -203,4 +204,8 @@ body {
 
 .task li:hover .x-button {
   display: block;
+}
+
+.sign-out {
+  border-radius: 5px;
 }

@@ -47,7 +47,7 @@ function LoginScreen({ setLoggedIn }) {
   );
 }
 
-function TrelloDashboard() {
+function TrelloDashboard({ setLoggedIn }) {
   const [list, setList] = useState([]);
   const [input, setInput] = useState();
 
@@ -69,6 +69,10 @@ function TrelloDashboard() {
     setList(newList);
   };
 
+  const logOff = () => {
+    setLoggedIn(false); // Set loggedIn to false when the user logs off
+  };
+
   return (
     <div className="dashboard">
       <header>
@@ -78,7 +82,7 @@ function TrelloDashboard() {
         </div>
         <h3>Trello List</h3>
 
-        <button className="sign-out">
+        <button className="sign-out" onClick={() => logOff()}>
           <img src={doorIcon} alt="door icon" />
           Sign out
         </button>
@@ -128,7 +132,7 @@ function App() {
   return (
     <>
       {loggedIn ? (
-        <TrelloDashboard />
+        <TrelloDashboard setLoggedIn={setLoggedIn} />
       ) : (
         <LoginScreen setLoggedIn={setLoggedIn} />
       )}
