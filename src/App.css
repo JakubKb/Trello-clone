@@ -198,4 +198,9 @@ body {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  display: none;
+}
+
+.task li:hover .x-button {
+  display: block;
 }

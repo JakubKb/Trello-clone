@@ -63,6 +63,12 @@ function TrelloDashboard() {
     setInput("");
   };
 
+  const deleteTodo = (id) => {
+    const newList = list.filter((todo) => todo.id !== id);
+
+    setList(newList);
+  };
+
   return (
     <div className="dashboard">
       <header>
@@ -86,7 +92,12 @@ function TrelloDashboard() {
                 <li key={todo.id}>
                   {todo.todo}
 
-                  <button className="x-button">X</button>
+                  <button
+                    className="x-button"
+                    onClick={() => deleteTodo(todo.id)}
+                  >
+                    X
+                  </button>
                 </li>
               ))}
             </ul>
