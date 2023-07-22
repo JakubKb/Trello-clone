@@ -50,17 +50,25 @@ function LoginScreen({ setLoggedIn }) {
 function TrelloDashboard({ setLoggedIn }) {
   const [list, setList] = useState([]);
   const [input, setInput] = useState();
+  const [board, setBoard] = useState([]);
+  const [boardInput, setBoardInput] = useState();
 
   const addTodo = (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
-
+    event.preventDefault();
     const newTodo = {
       id: Math.random(),
-      todo: input, // Access the input value directly from the state
+      todo: input,
     };
     setList([...list, newTodo]);
 
     setInput("");
+  };
+
+  const createBoard = (title) => {
+    const board = {
+      title: title,
+      lists: [],
+    };
   };
 
   const deleteTodo = (id) => {
@@ -70,7 +78,7 @@ function TrelloDashboard({ setLoggedIn }) {
   };
 
   const logOff = () => {
-    setLoggedIn(false); // Set loggedIn to false when the user logs off
+    setLoggedIn(false);
   };
 
   return (
@@ -120,7 +128,16 @@ function TrelloDashboard({ setLoggedIn }) {
             />
           </form>
         </div>
-        <button className="board-btn">Add a new board</button>
+        <div className="add-a-board">
+          <button className="board-btn">Add a new board</button>
+          <input
+            className="title-input"
+            type="text"
+            value={boardInput}
+            placeholder="Add a title..."
+            onChange={(e) => setBoardInput(e.target.value)}
+          />
+        </div>
       </div>
     </div>
   );

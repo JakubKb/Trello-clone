@@ -209,3 +209,20 @@ body {
 .sign-out {
   border-radius: 5px;
 }
+
+.title-input {
+  height: 50px;
+  width: 150px;
+  background-color: #864b9b;
+  margin-top: 15px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  opacity: 0.8;
+  text-align: center;
+  outline: none;
+}
+
+.title-input::placeholder {
+  color: #b9b9b9;
+}
