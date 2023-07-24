@@ -48,33 +48,56 @@ function LoginScreen({ setLoggedIn }) {
 }
 
 function TrelloDashboard({ setLoggedIn }) {
-  const [list, setList] = useState([]);
+  const [boards, setBoards] = useState([]);
   const [input, setInput] = useState();
-  const [board, setBoard] = useState([]);
   const [boardInput, setBoardInput] = useState();
 
-  const addTodo = (event) => {
+  const addTodo = (boardId, event) => {
     event.preventDefault();
     const newTodo = {
       id: Math.random(),
       todo: input,
     };
-    setList([...list, newTodo]);
+    setBoards((prevBoards) => {
+      const updatedBoards = prevBoards.map((board) => {
+        if (board.boardId === boardId) {
+          return {
+            ...board,
+            lists: [...board.lists, newTodo],
+          };
+        }
+        return board;
+      });
+      return updatedBoards;
+    });
 
     setInput("");
   };
 
-  const createBoard = (title) => {
-    const board = {
-      title: title,
+  const createBoard = () => {
+    const newBoard = {
+      boardId: Math.random(),
+      title: boardInput,
       lists: [],
     };
+
+    setBoards((prevBoards) => [...prevBoards, newBoard]);
+    setBoardInput("");
   };
 
-  const deleteTodo = (id) => {
-    const newList = list.filter((todo) => todo.id !== id);
-
-    setList(newList);
+  const deleteTodo = (boardId, id) => {
+    setBoards((prevBoards) => {
+      const updatedBoards = prevBoards.map((board) => {
+        if (board.boardId === boardId) {
+          return {
+            ...board,
+            lists: board.lists.filter((todo) => todo.id !== id),
+          };
+        }
+        return board;
+      });
+      return updatedBoards;
+    });
   };
 
   const logOff = () => {
@@ -96,40 +119,43 @@ function TrelloDashboard({ setLoggedIn }) {
         </button>
       </header>
       <div className="task-dashboard-wrapper">
-        <div className="task-board">
-          <h5>Title</h5>
-          <div className="task">
-            <ul>
-              {list.map((todo) => (
-                <li key={todo.id}>
-                  {todo.todo}
-
-                  <button
-                    className="x-button"
-                    onClick={() => deleteTodo(todo.id)}
-                  >
-                    X
-                  </button>
-                </li>
-              ))}
-            </ul>
+        {boards.map((board) => (
+          <div className="task-board" key={board.boardId}>
+            <h5>{board.title}</h5>
+            <div className="task">
+              <ul>
+                {board.lists.map((todo) => (
+                  <li key={todo.id}>
+                    {todo.todo}
+                    <button
+                      className="x-button"
+                      onClick={() => deleteTodo(board.boardId, todo.id)}
+                    >
+                      X
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <form onSubmit={(e) => addTodo(board.boardId, e)}>
+              <input
+                type="text"
+                placeholder="Add a new task.."
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    addTodo(board.boardId, e);
+                  }
+                }}
+              />
+            </form>
           </div>
-          <form onSubmit={addTodo}>
-            <input
-              type="text"
-              placeholder="Add a new task.."
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  addTodo(e);
-                }
-              }}
-            />
-          </form>
-        </div>
+        ))}
         <div className="add-a-board">
-          <button className="board-btn">Add a new board</button>
+          <button className="board-btn" onClick={createBoard}>
+            Add a new board
+          </button>
           <input
             className="title-input"
             type="text"
