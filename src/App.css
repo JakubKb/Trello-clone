@@ -55,22 +55,8 @@ body {
   transition: ease-in-out 0.4s;
 }
 
-.login-screen .info {
-  display: flex;
-}
-
-.login-screen a,
-.info p {
-  color: #fff;
-}
-
 .login-screen a {
   margin-left: 5px;
-}
-
-.info {
-  position: absolute;
-  bottom: 1px;
 }
 
 .dashboard header {
@@ -130,7 +116,7 @@ body {
 
 .task-board {
   background-color: #d6d6d6;
-  width: 250px;
+  width: 350px;
   padding: 10px;
   margin: 15px;
   border-radius: 7px;
@@ -170,6 +156,8 @@ body {
 
 .task-dashboard-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .task-dashboard-wrapper .board-btn {
@@ -225,4 +213,9 @@ body {
 
 .title-input::placeholder {
   color: #b9b9b9;
+}
+
+.add-a-board {
+  display: flex;
+  flex-direction: column;
 }
