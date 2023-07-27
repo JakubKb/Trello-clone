@@ -66,6 +66,10 @@ function TrelloDashboard({ setLoggedIn }) {
   };
 
   const createBoard = () => {
+    if (!boardInput) {
+      return;
+    }
+
     const newBoard = {
       boardId: Math.random(),
       title: boardInput,
