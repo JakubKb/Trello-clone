@@ -1,7 +1,7 @@
 # Trello remake
 
 This project is a trello list remake made in react.
-[Live version](https://64c2c808bf5340009031357c--funny-griffin-361e8a.netlify.app/)
+[Live version](https://64c2cb61e57d76063d7248a6--stunning-centaur-560b45.netlify.app/)
 
 test account:
 
