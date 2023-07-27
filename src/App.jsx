@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import profileIcon from "./trello-assets/profile-icon.svg";
 import doorIcon from "./trello-assets/door-icon.svg";
+import check from "./trello-assets/check.svg";
 
 function LoginScreen({ setLoggedIn }) {
   const [login, setLogin] = useState("");
@@ -45,6 +46,11 @@ function TrelloDashboard({ setLoggedIn }) {
 
   const addTodo = (boardId, event) => {
     event.preventDefault();
+
+    if (!input) {
+      return;
+    }
+
     const newTodo = {
       id: Math.random(),
       todo: input,
@@ -132,7 +138,10 @@ function TrelloDashboard({ setLoggedIn }) {
                 ))}
               </ul>
             </div>
-            <form onSubmit={(e) => addTodo(board.boardId, e)}>
+            <form
+              onSubmit={(e) => addTodo(board.boardId, e)}
+              className="task-add-form"
+            >
               <input
                 type="text"
                 placeholder="Add a new task.."
@@ -144,6 +153,9 @@ function TrelloDashboard({ setLoggedIn }) {
                   }
                 }}
               />
+              <button className="task-add-btn">
+                <img src={check} alt="check icon" />
+              </button>
             </form>
           </div>
         ))}
