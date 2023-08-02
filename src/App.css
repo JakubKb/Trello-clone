@@ -273,3 +273,20 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.board-header-x {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  background: none;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+}

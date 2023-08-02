@@ -101,6 +101,15 @@ function TrelloDashboard({ setLoggedIn }) {
     });
   };
 
+  const deleteBoard = (boardId) => {
+    setBoards((prevBoards) => {
+      const updatedBoards = prevBoards.filter(
+        (board) => board.boardId !== boardId
+      );
+      return updatedBoards;
+    });
+  };
+
   const logOff = () => {
     setLoggedIn(false);
   };
@@ -122,7 +131,16 @@ function TrelloDashboard({ setLoggedIn }) {
       <div className="task-dashboard-wrapper">
         {boards.map((board) => (
           <div className="task-board" key={board.boardId}>
-            <h5>{board.title}</h5>
+            <div className="board-header">
+              <h5 className="board-title">{board.title}</h5>
+              <button
+                className="board-header-x"
+                onClick={() => deleteBoard(board.boardId)}
+              >
+                {" "}
+                X{" "}
+              </button>
+            </div>
             <div className="task">
               <ul>
                 {board.lists.map((todo) => (
